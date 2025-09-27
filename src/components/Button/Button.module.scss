@@ -2,7 +2,7 @@ $blue-color: hsla(201, 100%, 36%, 1);
 $red-color: hsla(8, 93%, 63%, 1);
 
 .btn {
-  width: 100px;
+  min-width: 100px;
   padding: 15px;
   border-radius: 10px;
   font-size: 17px;
