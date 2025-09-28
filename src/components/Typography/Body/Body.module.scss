@@ -1,4 +1,4 @@
-@import '../Typography.module.scss';
+@use '@/components/Typography/Typography.module.scss';
 
 .bdy {
   font-weight: 400;
