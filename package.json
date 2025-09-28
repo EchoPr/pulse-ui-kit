@@ -11,7 +11,7 @@
     "build": "tsc && rollup -c",
     "rollup": "rollup -c",
     "dev": "vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o storybook-static"
   },
