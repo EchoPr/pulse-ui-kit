@@ -14,6 +14,11 @@ const config: StorybookConfig = {
   },
   viteFinal: async config => {
     config.base = '/pulse-ui-kit/';
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname, '../src'),
+    };
     return config;
   },
 };
