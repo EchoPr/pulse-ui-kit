@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Button.module.scss';
+import styles from './Button.module.scss';
 
 type variant = 'default' | 'danger';
 type style = 'primary' | 'secondary' | 'on-danger' | 'on-default';
@@ -21,11 +21,17 @@ export default function Button({
   size = 'normal',
   onClick,
 }: ButtonProps) {
+  const getButtonClasses = () => {
+    const baseClass = styles.btn;
+    const variantStyleClass =
+      variant && style ? styles[`btn-${variant}-${style}`] : '';
+    const sizeClass = styles[`btn-${size}`];
+
+    return [baseClass, variantStyleClass, sizeClass].filter(Boolean).join(' ');
+  };
+
   return (
-    <button
-      className={`btn btn-${variant}-${style} btn-${size}`}
-      onClick={onClick}
-    >
+    <button className={getButtonClasses()} onClick={onClick}>
       {text}
     </button>
   );
