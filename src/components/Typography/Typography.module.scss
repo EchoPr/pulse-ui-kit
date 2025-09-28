@@ -1,0 +1,11 @@
+@import '../colors.scss';
+
+.text {
+  &-white {
+    color: white;
+  }
+
+  &-grey {
+    color: var(--grey-color);
+  }
+}
