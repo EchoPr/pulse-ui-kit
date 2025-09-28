@@ -1,9 +1,9 @@
 import React from 'react';
-import TextProps from './TextProps';
+import TextProps from '../TextProps';
 
-import './Typography.module.scss';
+import './Body.module.scss';
 
-export default function Heading({
+export default function Body({
   children,
   level = 1,
   color = 'white',

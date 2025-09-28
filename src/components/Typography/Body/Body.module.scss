@@ -1,0 +1,18 @@
+@import '../Typography.module.scss';
+
+.bdy {
+  font-weight: 400;
+  letter-spacing: 0px;
+
+  &-1 {
+    font-size: 20px;
+  }
+
+  &-2 {
+    font-size: 16px;
+  }
+
+  &-3 {
+    font-size: 14px;
+  }
+}
