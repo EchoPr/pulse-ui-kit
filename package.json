@@ -11,8 +11,7 @@
     "build": "tsc && rollup -c",
     "rollup": "rollup -c",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o storybook-static --base-path /pulse-ui-kit"
-
+    "build-storybook": "storybook build -o storybook-static"
   },
   "keywords": [],
   "author": "",
