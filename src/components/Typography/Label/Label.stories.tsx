@@ -8,7 +8,7 @@ const meta: Meta<typeof Label> = {
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'dark',
+      default: 'light',
       values: [
         { name: 'dark', value: '#333333' },
         { name: 'light', value: '#ffffff' },
@@ -24,7 +24,7 @@ const meta: Meta<typeof Label> = {
     },
     color: {
       control: { type: 'select' },
-      options: ['white', 'grey'],
+      options: ['white', 'grey', 'danger'],
       description: 'Text color',
     },
     children: {
@@ -40,7 +40,7 @@ type Story = StoryObj<typeof meta>;
 export const Level1: Story = {
   args: {
     level: 1,
-    color: 'white',
+    color: 'grey',
     children: 'Label Level 1',
   },
 };
@@ -48,7 +48,7 @@ export const Level1: Story = {
 export const Level2: Story = {
   args: {
     level: 2,
-    color: 'white',
+    color: 'grey',
     children: 'Label Level 2',
   },
 };
@@ -56,7 +56,7 @@ export const Level2: Story = {
 export const Level3: Story = {
   args: {
     level: 3,
-    color: 'white',
+    color: 'grey',
     children: 'Label Level 3',
   },
 };
@@ -67,6 +67,11 @@ export const WhiteColor: Story = {
     color: 'white',
     children: 'White Label',
   },
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
 };
 
 export const GreyColor: Story = {
@@ -75,10 +80,13 @@ export const GreyColor: Story = {
     color: 'grey',
     children: 'Grey Label',
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
+};
+
+export const DangerColor: Story = {
+  args: {
+    level: 1,
+    color: 'danger',
+    children: 'Danger Label',
   },
 };
 
@@ -93,7 +101,7 @@ export const FormLabels: Story = {
       }}
     >
       <div>
-        <Label level={1} color="white">
+        <Label level={1} color="grey">
           Email Address
         </Label>
         <input
@@ -108,7 +116,7 @@ export const FormLabels: Story = {
         />
       </div>
       <div>
-        <Label level={2} color="white">
+        <Label level={2} color="grey">
           Password
         </Label>
         <input
@@ -123,7 +131,7 @@ export const FormLabels: Story = {
         />
       </div>
       <div>
-        <Label level={3} color="white">
+        <Label level={3} color="grey">
           Confirm Password
         </Label>
         <input
@@ -144,13 +152,13 @@ export const FormLabels: Story = {
 export const AllLevels: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Label level={1} color="white">
+      <Label level={1} color="grey">
         Label Level 1
       </Label>
-      <Label level={2} color="white">
+      <Label level={2} color="grey">
         Label Level 2
       </Label>
-      <Label level={3} color="white">
+      <Label level={3} color="grey">
         Label Level 3
       </Label>
     </div>

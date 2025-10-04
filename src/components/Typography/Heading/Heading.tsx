@@ -1,14 +1,19 @@
 import React from 'react';
 import TextProps from '../TextProps';
 
-import './Heading.module.scss';
+import styles from './Heading.module.scss';
+import textStyles from '../Typography.module.scss';
 
 export default function Heading({
   children,
   level = 1,
-  color = 'white',
+  color = 'grey',
 }: TextProps) {
   return (
-    <p className={`text text-${color} heading heading-${level}`}>{children}</p>
+    <p
+      className={`${textStyles.text} ${textStyles[`text-${color}`]} ${styles.heading} ${styles[`heading-${level}`]}`}
+    >
+      {children}
+    </p>
   );
 }

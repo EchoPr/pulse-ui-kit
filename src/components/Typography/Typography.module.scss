@@ -1,11 +1,15 @@
-@use '@/components/colors.scss';
-
 .text {
+  font-family: 'Inter', sans-serif;
+
   &-white {
     color: white;
   }
 
   &-grey {
     color: var(--grey-color);
+  }
+
+  &-danger {
+    color: var(--red-color);
   }
 }

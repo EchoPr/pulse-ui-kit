@@ -7,7 +7,7 @@ type style = 'primary' | 'secondary' | 'on-danger' | 'on-default';
 type size = 'small' | 'normal';
 
 interface ButtonProps {
-  text: string;
+  children: React.ReactNode;
   variant?: variant;
   style?: style;
   size?: size;
@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 export default function Button({
-  text,
+  children,
   variant,
   style = 'primary',
   size = 'normal',
@@ -32,7 +32,7 @@ export default function Button({
 
   return (
     <button className={getButtonClasses()} onClick={onClick}>
-      {text}
+      {children}
     </button>
   );
 }

@@ -1,6 +1,8 @@
-@use '@/components/colors.scss';
+$blue-color: hsla(201, 100%, 36%, 1);
+$red-color: hsla(8, 93%, 63%, 1);
 
 .btn {
+  font-family: 'Inter', sans-serif;
   min-width: 100px;
   padding: 15px;
   border-radius: 10px;
@@ -22,39 +24,39 @@
 
   &-default {
     &-primary {
-      background-color: var(--blue-color);
+      background-color: $blue-color;
       color: white;
     }
 
     &-secondary {
       background-color: transparent;
-      color: var(--blue-color);
-      border-color: var(--blue-color);
+      color: $blue-color;
+      border-color: $blue-color;
       border: 2px;
       border-style: solid;
     }
 
     &-on-danger {
       background-color: white;
-      color: var(--red-color);
+      color: $red-color;
     }
 
     &-on-default {
       background-color: white;
-      color: var(--blue-color);
+      color: $blue-color;
     }
   }
 
   &-danger {
     &-primary {
-      background-color: var(--red-color);
+      background-color: $red-color;
       color: white;
     }
 
     &-secondary {
       background-color: transparent;
-      color: var(--red-color);
-      border-color: var(--red-color);
+      color: $red-color;
+      border-color: $red-color;
       border: 2px;
       border-style: solid;
     }

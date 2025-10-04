@@ -1,12 +1,19 @@
 import React from 'react';
 import TextProps from '../TextProps';
 
-import './Label.module.scss';
+import styles from './Label.module.scss';
+import textStyles from '../Typography.module.scss';
 
 export default function Label({
   children,
   level = 1,
-  color = 'white',
+  color = 'grey',
 }: TextProps) {
-  return <p className={`text text-${color} lbl lbl-${level}`}>{children}</p>;
+  return (
+    <p
+      className={`${textStyles.text} ${textStyles[`text-${color}`]} ${styles.lbl} ${styles[`lbl-${level}`]}`}
+    >
+      {children}
+    </p>
+  );
 }

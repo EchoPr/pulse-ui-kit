@@ -8,7 +8,7 @@ const meta: Meta<typeof Body> = {
   parameters: {
     layout: 'centered',
     backgrounds: {
-      default: 'dark',
+      default: 'light',
       values: [
         { name: 'dark', value: '#333333' },
         { name: 'light', value: '#ffffff' },
@@ -24,7 +24,7 @@ const meta: Meta<typeof Body> = {
     },
     color: {
       control: { type: 'select' },
-      options: ['white', 'grey'],
+      options: ['white', 'grey', 'danger'],
       description: 'Text color',
     },
     children: {
@@ -40,7 +40,7 @@ type Story = StoryObj<typeof meta>;
 export const Level1: Story = {
   args: {
     level: 1,
-    color: 'white',
+    color: 'grey',
     children:
       'This is body text level 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
@@ -49,7 +49,7 @@ export const Level1: Story = {
 export const Level2: Story = {
   args: {
     level: 2,
-    color: 'white',
+    color: 'grey',
     children:
       'This is body text level 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
@@ -58,7 +58,7 @@ export const Level2: Story = {
 export const Level3: Story = {
   args: {
     level: 3,
-    color: 'white',
+    color: 'grey',
     children:
       'This is body text level 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
@@ -70,6 +70,11 @@ export const WhiteColor: Story = {
     color: 'white',
     children: 'White body text for dark backgrounds.',
   },
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
 };
 
 export const GreyColor: Story = {
@@ -78,14 +83,21 @@ export const GreyColor: Story = {
     color: 'grey',
     children: 'Grey body text for light backgrounds.',
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
+};
+
+export const DangerColor: Story = {
+  args: {
+    level: 1,
+    color: 'danger',
+    children: 'Danger body text for errors and warnings.',
   },
 };
 
 export const AllLevels: Story = {
+  args: {
+    color: 'grey',
+  },
+
   render: () => (
     <div
       style={{
@@ -95,15 +107,15 @@ export const AllLevels: Story = {
         maxWidth: '600px',
       }}
     >
-      <Body level={1} color="white">
+      <Body level={1} color="grey">
         Body Level 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </Body>
-      <Body level={2} color="white">
+      <Body level={2} color="grey">
         Body Level 2: Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat.
       </Body>
-      <Body level={3} color="white">
+      <Body level={3} color="grey">
         Body Level 3: Duis aute irure dolor in reprehenderit in voluptate velit
         esse cillum dolore eu fugiat nulla pariatur.
       </Body>

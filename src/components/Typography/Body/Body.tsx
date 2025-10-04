@@ -1,12 +1,19 @@
 import React from 'react';
 import TextProps from '../TextProps';
 
-import './Body.module.scss';
+import styles from './Body.module.scss';
+import textStyles from '../Typography.module.scss';
 
 export default function Body({
   children,
   level = 1,
-  color = 'white',
+  color = 'grey',
 }: TextProps) {
-  return <p className={`text text-${color} bdy bdy-${level}`}>{children}</p>;
+  return (
+    <p
+      className={`${textStyles.text} ${textStyles[`text-${color}`]} ${styles.bdy} ${styles[`bdy-${level}`]}`}
+    >
+      {children}
+    </p>
+  );
 }
