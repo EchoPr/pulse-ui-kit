@@ -1,0 +1,1 @@
+const t="_text_1o6mk_35",e="_btn_1o6mk_36",_="_badge_1o6mk_37",o={text:t,btn:e,badge:_,"text-white":"_text-white_1o6mk_54","text-grey":"_text-grey_1o6mk_57","text-danger":"_text-danger_1o6mk_60"};export{o as t};
