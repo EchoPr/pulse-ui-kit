@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc && rollup -c",
     "rollup": "rollup -c",
