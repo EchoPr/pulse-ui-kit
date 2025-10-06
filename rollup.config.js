@@ -31,11 +31,24 @@ export default [
         declaration: false,
         declarationDir: undefined
       }),
+      {
+        name: 'scss',
+        transform(code, id) {
+          if (id.endsWith('.scss') || id.endsWith('.css')) {
+            return {
+              code: 'export default {}',
+              map: null
+            };
+          }
+        }
+      }
     ],
+    external: ['react', 'react-dom']
   },
   {
     input: "dist/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
+    external: [/\.scss$/, /\.css$/]
   },
 ];

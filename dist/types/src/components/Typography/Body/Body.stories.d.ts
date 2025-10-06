@@ -1,0 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import Body from './Body';
+declare const meta: Meta<typeof Body>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Level1: Story;
+export declare const Level2: Story;
+export declare const Level3: Story;
+export declare const WhiteColor: Story;
+export declare const GreyColor: Story;
+export declare const DangerColor: Story;
+export declare const AllLevels: Story;
