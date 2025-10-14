@@ -1,156 +1,85 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-
+import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 import Input from './Input';
 
-export default {
+const meta = {
   title: 'Components/Input',
   component: Input,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
   argTypes: {
     type: {
       control: { type: 'select' },
       options: ['text', 'password', 'email', 'number'],
     },
     disabled: {
-      control: 'boolean',
+      control: { type: 'boolean' },
     },
     placeholder: {
-      control: 'text',
-    },
-    value: {
-      control: 'text',
-    },
-    onChange: {
-      action: 'changed',
+      control: { type: 'text' },
     },
   },
-} as Meta<typeof Input>;
+} satisfies Meta<typeof Input>;
 
-const Template: StoryFn<typeof Input> = args => <Input {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Введите текст...',
-  type: 'text',
-  onChange: action('onChange'),
+// Обертка для контролируемого инпута
+const InputWithState = (args: any) => {
+  const [value, setValue] = useState(args.value || '');
+  return <Input {...args} value={value} onChange={setValue} />;
 };
 
-export const WithValue = Template.bind({});
-WithValue.args = {
-  value: 'Предзаполненный текст',
-  placeholder: 'Введите текст...',
-  type: 'text',
-  onChange: action('onChange'),
+// Базовая история
+export const Default: Story = {
+  render: args => <InputWithState {...args} />,
+  args: {
+    placeholder: 'Введите текст...',
+  },
 };
 
-export const Password = Template.bind({});
-Password.args = {
-  type: 'password',
-  placeholder: 'Введите пароль...',
-  onChange: action('onChange'),
+// Пароль
+export const Password: Story = {
+  render: args => <InputWithState {...args} />,
+  args: {
+    type: 'password',
+    placeholder: 'Введите пароль...',
+  },
 };
 
-export const Email = Template.bind({});
-Email.args = {
-  type: 'email',
-  placeholder: 'email@example.com',
-  onChange: action('onChange'),
+// Email
+export const Email: Story = {
+  render: args => <InputWithState {...args} />,
+  args: {
+    type: 'email',
+    placeholder: 'example@mail.com',
+  },
 };
 
-export const Number = Template.bind({});
-Number.args = {
-  type: 'number',
-  placeholder: 'Введите число',
-  onChange: action('onChange'),
+// Отключенное поле
+export const Disabled: Story = {
+  args: {
+    value: 'Неактивное поле',
+    disabled: true,
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  placeholder: 'Отключенное поле',
-  disabled: true,
+// С иконкой перед полем
+export const WithBeforeAction: Story = {
+  render: args => <InputWithState {...args} />,
+  args: {
+    placeholder: 'Поиск...',
+    beforeAction: <span style={{ color: '#666', padding: '0 4px' }}>🔍</span>,
+  },
 };
 
-export const WithBeforeAction = Template.bind({});
-WithBeforeAction.args = {
-  placeholder: 'Поиск...',
-  beforeAction: <span style={{ color: '#666', padding: '0 8px' }}>🔍</span>,
-  onChange: action('onChange'),
+// С иконкой после поля
+export const WithAfterAction: Story = {
+  render: args => <InputWithState {...args} />,
+  args: {
+    placeholder: 'Введите сумму...',
+    afterAction: <span style={{ color: '#666', padding: '0 4px' }}>₽</span>,
+  },
 };
-
-export const WithAfterAction = Template.bind({});
-WithAfterAction.args = {
-  placeholder: 'Введите сумму',
-  afterAction: (
-    <span style={{ color: '#666', padding: '0 8px', fontSize: '14px' }}>₽</span>
-  ),
-  onChange: action('onChange'),
-};
-
-export const WithBothActions = Template.bind({});
-WithBothActions.args = {
-  placeholder: 'Введите URL',
-  beforeAction: (
-    <span style={{ color: '#666', padding: '0 8px', fontSize: '14px' }}>
-      https://
-    </span>
-  ),
-  afterAction: (
-    <span style={{ color: '#666', padding: '0 8px', fontSize: '14px' }}>
-      .com
-    </span>
-  ),
-  onChange: action('onChange'),
-};
-
-// Демонстрация всех состояний в одной стори
-export const AllStates = () => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-      maxWidth: '300px',
-    }}
-  >
-    <Input placeholder="Обычное поле" onChange={action('onChange')} />
-    <Input value="С предзаполненным текстом" onChange={action('onChange')} />
-    <Input placeholder="Отключенное поле" disabled />
-    <Input
-      placeholder="С иконкой поиска"
-      beforeAction={<span>🔍</span>}
-      onChange={action('onChange')}
-    />
-    <Input
-      placeholder="С валютой"
-      afterAction={<span>₽</span>}
-      onChange={action('onChange')}
-    />
-    <Input type="password" placeholder="Пароль" onChange={action('onChange')} />
-  </div>
-);
-
-AllStates.storyName = 'All States';
-
-// Демонстрация разных типов инпутов
-export const InputTypes = () => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-      maxWidth: '300px',
-    }}
-  >
-    <Input
-      type="text"
-      placeholder="Текстовое поле"
-      onChange={action('onChange')}
-    />
-    <Input type="password" placeholder="Пароль" onChange={action('onChange')} />
-    <Input type="email" placeholder="Email" onChange={action('onChange')} />
-    <Input type="number" placeholder="Число" onChange={action('onChange')} />
-  </div>
-);
-
-InputTypes.storyName = 'Input Types';

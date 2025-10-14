@@ -21,7 +21,19 @@ export default {
   },
 } as Meta<typeof Badge>;
 
-const Template: StoryFn<typeof Badge> = args => <Badge {...args} />;
+const Template: StoryFn<typeof Badge> = args => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      padding: '20px',
+    }}
+  >
+    <Badge {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -77,9 +89,12 @@ export const AllVariants = () => (
   <div
     style={{
       display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       gap: '10px',
       flexWrap: 'wrap',
-      alignItems: 'center',
+      minHeight: '100vh',
+      padding: '20px',
     }}
   >
     <Badge style="default">Default</Badge>
