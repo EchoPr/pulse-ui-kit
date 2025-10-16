@@ -1,6 +1,6 @@
 .badge {
-  width: 120;
-  height: 28;
+  min-width: 120px;
+  height: 28px;
   border-radius: 5px;
   padding: 5px;
   font-family: 'Inter', sans-serif;
@@ -14,23 +14,23 @@
   white-space: nowrap;
 
   &-default {
-    background-color: var(--blue-color);
+    background-color: var(--accent-color);
     color: white;
   }
 
   &-on-default {
     background-color: white;
-    color: var(--blue-color);
+    color: var(--accent-color);
   }
 
   &-danger {
-    background-color: var(--red-color);
+    background-color: var(--danger-color);
     color: white;
   }
 
   &-on-danger {
     background-color: white;
-    color: var(--red-color);
+    color: var(--danger-color);
   }
 
   &-div {

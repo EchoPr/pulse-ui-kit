@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
-import Label from '../Typography/Label/Label';
 import React from 'react';
 
 const meta: Meta<typeof Button> = {
@@ -13,7 +12,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     children: {
       control: { type: 'text' },
-      description: 'Button content (use Typography components)',
+      description: 'Button content',
     },
     variant: {
       control: { type: 'select' },
@@ -40,11 +39,7 @@ export const Default: Story = {
     variant: 'default',
     style: 'primary',
     size: 'normal',
-    children: (
-      <Label level={3} color="white">
-        Button
-      </Label>
-    ),
+    children: 'Button',
   },
 };
 
@@ -54,11 +49,7 @@ export const PrimaryDefault: Story = {
     variant: 'default',
     style: 'primary',
     size: 'normal',
-    children: (
-      <Label level={3} color="white">
-        Primary Default
-      </Label>
-    ),
+    children: 'Primary Default',
   },
 };
 
@@ -67,11 +58,7 @@ export const PrimaryDanger: Story = {
     variant: 'danger',
     style: 'primary',
     size: 'normal',
-    children: (
-      <Label level={3} color="white">
-        Primary Danger
-      </Label>
-    ),
+    children: 'Primary Danger',
   },
 };
 
@@ -81,11 +68,7 @@ export const SecondaryDefault: Story = {
     variant: 'default',
     style: 'secondary',
     size: 'normal',
-    children: (
-      <Label level={3} color="grey">
-        Secondary Default
-      </Label>
-    ),
+    children: 'Secondary Default',
   },
 };
 
@@ -94,65 +77,27 @@ export const SecondaryDanger: Story = {
     variant: 'danger',
     style: 'secondary',
     size: 'normal',
-    children: (
-      <Label level={3} color="danger">
-        Secondary Danger
-      </Label>
-    ),
+    children: 'Secondary Danger',
   },
 };
 
-// On-danger variants
-export const OnDangerDefault: Story = {
+// On-danger variant (только для default)
+export const OnDanger: Story = {
   args: {
     variant: 'default',
     style: 'on-danger',
     size: 'normal',
-    children: (
-      <Label level={3} color="grey">
-        On Danger Default
-      </Label>
-    ),
+    children: 'On Danger',
   },
 };
 
-export const OnDangerDanger: Story = {
-  args: {
-    variant: 'danger',
-    style: 'on-danger',
-    size: 'normal',
-    children: (
-      <Label level={3} color="grey">
-        On Danger Danger
-      </Label>
-    ),
-  },
-};
-
-// On-default variants
-export const OnDefaultDefault: Story = {
+// On-default variant (только для default)
+export const OnDefault: Story = {
   args: {
     variant: 'default',
     style: 'on-default',
     size: 'normal',
-    children: (
-      <Label level={3} color="grey">
-        On Default Default
-      </Label>
-    ),
-  },
-};
-
-export const OnDefaultDanger: Story = {
-  args: {
-    variant: 'danger',
-    style: 'on-default',
-    size: 'normal',
-    children: (
-      <Label level={3} color="grey">
-        On Default Danger
-      </Label>
-    ),
+    children: 'On Default',
   },
 };
 
@@ -162,11 +107,7 @@ export const SmallButton: Story = {
     variant: 'default',
     style: 'primary',
     size: 'small',
-    children: (
-      <Label level={3} color="white">
-        Small Button
-      </Label>
-    ),
+    children: 'Small Button',
   },
 };
 
@@ -175,114 +116,66 @@ export const NormalButton: Story = {
     variant: 'default',
     style: 'primary',
     size: 'normal',
-    children: (
-      <Label level={3} color="white">
-        Normal Button
-      </Label>
-    ),
+    children: 'Normal Button',
   },
 };
 
-// All combinations showcase
+// All combinations showcase - только допустимые комбинации
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <h3 style={{ margin: 0, minWidth: '120px' }}>Default Primary:</h3>
         <Button variant="default" style="primary" size="normal">
-          <Label level={3} color="white">
-            Normal
-          </Label>
+          Normal
         </Button>
         <Button variant="default" style="primary" size="small">
-          <Label level={3} color="white">
-            Small
-          </Label>
+          Small
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <h3 style={{ margin: 0, minWidth: '120px' }}>Default Secondary:</h3>
         <Button variant="default" style="secondary" size="normal">
-          <Label level={3} color="grey">
-            Normal
-          </Label>
+          Normal
         </Button>
         <Button variant="default" style="secondary" size="small">
-          <Label level={3} color="grey">
-            Small
-          </Label>
+          Small
+        </Button>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <h3 style={{ margin: 0, minWidth: '120px' }}>Default On-Danger:</h3>
+        <Button variant="default" style="on-danger" size="normal">
+          Normal
+        </Button>
+        <Button variant="default" style="on-danger" size="small">
+          Small
+        </Button>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <h3 style={{ margin: 0, minWidth: '120px' }}>Default On-Default:</h3>
+        <Button variant="default" style="on-default" size="normal">
+          Normal
+        </Button>
+        <Button variant="default" style="on-default" size="small">
+          Small
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <h3 style={{ margin: 0, minWidth: '120px' }}>Danger Primary:</h3>
         <Button variant="danger" style="primary" size="normal">
-          <Label level={3} color="white">
-            Normal
-          </Label>
+          Normal
         </Button>
         <Button variant="danger" style="primary" size="small">
-          <Label level={3} color="white">
-            Small
-          </Label>
+          Small
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
         <h3 style={{ margin: 0, minWidth: '120px' }}>Danger Secondary:</h3>
         <Button variant="danger" style="secondary" size="normal">
-          <Label level={3} color="grey">
-            Normal
-          </Label>
+          Normal
         </Button>
         <Button variant="danger" style="secondary" size="small">
-          <Label level={3} color="grey">
-            Small
-          </Label>
-        </Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <h3 style={{ margin: 0, minWidth: '120px' }}>On-Danger:</h3>
-        <Button variant="default" style="on-danger" size="normal">
-          <Label level={3} color="grey">
-            Default Normal
-          </Label>
-        </Button>
-        <Button variant="default" style="on-danger" size="small">
-          <Label level={3} color="grey">
-            Default Small
-          </Label>
-        </Button>
-        <Button variant="danger" style="on-danger" size="normal">
-          <Label level={3} color="grey">
-            Danger Normal
-          </Label>
-        </Button>
-        <Button variant="danger" style="on-danger" size="small">
-          <Label level={3} color="grey">
-            Danger Small
-          </Label>
-        </Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <h3 style={{ margin: 0, minWidth: '120px' }}>On-Default:</h3>
-        <Button variant="default" style="on-default" size="normal">
-          <Label level={3} color="grey">
-            Default Normal
-          </Label>
-        </Button>
-        <Button variant="default" style="on-default" size="small">
-          <Label level={3} color="grey">
-            Default Small
-          </Label>
-        </Button>
-        <Button variant="danger" style="on-default" size="normal">
-          <Label level={3} color="grey">
-            Danger Normal
-          </Label>
-        </Button>
-        <Button variant="danger" style="on-default" size="small">
-          <Label level={3} color="grey">
-            Danger Small
-          </Label>
+          Small
         </Button>
       </div>
     </div>
