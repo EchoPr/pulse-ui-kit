@@ -10,6 +10,9 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 
   &-small {
     height: 40px;
@@ -37,6 +40,7 @@
       &:hover {
         background-color: var(--accent-color);
         color: white;
+        border-color: var(--accent-color);
       }
     }
 
@@ -78,6 +82,7 @@
       &:hover {
         background-color: var(--danger-color);
         color: white;
+        border-color: var(--danger-hover-color);
       }
     }
   }

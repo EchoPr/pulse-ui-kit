@@ -8,7 +8,7 @@
   min-width: 250;
   height: 40;
   border-radius: 10px;
-  border-width: 1px;
+  border: 1px solid var(--accent-color);
   padding: 10px;
   box-sizing: border-box;
 }
@@ -22,6 +22,11 @@
     outline: none;
     box-shadow: none;
   }
+}
+
+.input-field-disabled {
+  color: var(--text-disabled-color);
+  cursor: not-allowed;
 }
 
 .input-after,

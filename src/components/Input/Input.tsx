@@ -39,7 +39,7 @@ export default function Input({
           : { defaultValue: value })}
         placeholder={placeholder}
         disabled={disabled}
-        className={styles['input-field']}
+        className={`${styles['input-field']} ${disabled ? styles['input-field-disabled'] : ''}`}
       />
 
       {afterAction && (
