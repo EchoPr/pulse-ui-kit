@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ArrowIcon from '../icons/ArrowIcon/ArrowIcon';
 
 import styles from './Dropdown.module.scss';
-
-import image from '../../assets/icons/arrow.png';
 
 interface DropdownProps {
   text?: string;
@@ -31,7 +30,7 @@ export default function Dropdown({ text, children }: DropdownProps) {
     <div>
       <div className={styles.dropdown} onClick={() => setIsOpen(!isOpen)}>
         {text}
-        <img src={image} className={styles.arrow} />
+        <ArrowIcon />
       </div>
 
       {isOpen && (
