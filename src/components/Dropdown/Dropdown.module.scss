@@ -1,0 +1,23 @@
+.dropdown {
+  background-color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--menu-text-color);
+  width: 200px;
+  border-style: solid;
+  border-color: var(--menu-border-color);
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+}
